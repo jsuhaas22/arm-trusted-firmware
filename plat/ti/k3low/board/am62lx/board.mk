@@ -10,6 +10,9 @@ USE_COHERENT_MEM	:=	0
 BL32_BASE ?= 0x80200000
 $(eval $(call add_define,BL32_BASE))
 
+BL32_SIZE ?= 0x17FFFFF
+$(eval $(call add_define,BL32_SIZE))
+
 PRELOADED_BL33_BASE ?= 0x82000000
 $(eval $(call add_define,PRELOADED_BL33_BASE))
 

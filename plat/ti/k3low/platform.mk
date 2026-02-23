@@ -10,6 +10,9 @@ TARGET_BOARD	?=	am62lx
 include plat/ti/common/plat_common.mk
 include ${PLAT_PATH}/board/${TARGET_BOARD}/board.mk
 
+BL32_SIZE ?= 0x00400000
+$(eval $(call add_define,BL32_SIZE))
+
 PLAT_INCLUDES +=	\
 			-I${PLAT_PATH}/board/${TARGET_BOARD}/include	\
 			-I${PLAT_PATH}					\

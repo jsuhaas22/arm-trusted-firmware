@@ -228,9 +228,9 @@ static int am62l_validate_power_state(unsigned int power_state,
 static void am62l_pwr_domain_suspend(const psci_power_state_t *target_state)
 {
 	uint32_t core, proc_id;
-	uint32_t mode = 0;
+	uint32_t mode = 6;
 	core = plat_my_core_pos();
-	uint64_t context_save_addr = 0x80A00000;
+	uint64_t context_save_addr = 0x81A10000;
 
 	assert(core < 2U);
 
@@ -370,7 +370,9 @@ static void am62l_pwr_domain_suspend_finish(const psci_power_state_t *target_sta
 	}
 
 	/* Update firewall configurations */
-	update_fwl_configs();
+	//update_fwl_configs();
+
+
 	/* Remove the I/O isolation */
 	k3low_lpm_set_io_isolation(false);
 	/* Initialize the console to provide early debug support */
